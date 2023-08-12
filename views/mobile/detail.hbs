@@ -1,0 +1,41 @@
+{{!-- div.container>div.row>div.col*2 --}}
+
+<div class="container col-md-10 text-center mt-3 mb-3">
+   <div class="row">
+      {{!-- LEFT COLUMN --}}
+      <div class="col">
+         <img src="{{ mobile.image }}" alt="dien thoai" width="350" height="400">
+         <h3 class="text text-primary mt-3">{{ mobile.brandName }} {{ mobile.phoneModel }}</h3>
+      </div>
+
+      {{!-- RIGHT COLUMN --}}
+      <div class="col">
+         <h1 class="text text-danger">Mobile Detail</h1>
+         <table class="table">
+            <tr>
+               <th>Price</th>
+               <th>${{ mobile.price }}</th>
+            </tr>
+            <tr>
+               <th>Quantity</th>
+               <th>{{ mobile.quantity }}</th>
+            </tr>
+            <tr>
+               <th>Best Seller</th>
+               <th>{{ mobile.bestSeller }}</th>
+            </tr>
+            <tr>
+               <th></th>
+               <th>
+                  <form action="/mobile/order" method="post">
+                     <input class="form-control mb-3" type="number" name="quantity" min="1" max="{{ mobile.quantity }}" required>
+                     <input type="hidden" name="price" value="{{ mobile.price }}">
+                     <input type="hidden" name="id" value="{{ mobile._id }}">
+                     <input class="btn btn-primary" type="submit" value="Order">
+                  </form>
+               </th>
+            </tr>
+         </table>
+      </div>
+   </div>
+</div>

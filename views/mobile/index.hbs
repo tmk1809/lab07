@@ -1,0 +1,51 @@
+<div class="container text-center mt-3 mb-3">
+   <h1 class="text text-primary">Mobile List</h1>
+
+   <a class="btn btn-success" href="#">Add</a>
+   <a class="btn btn-danger" href="/mobile/deleteall"
+      onclick="return confirm('Are you sure to delete all mobile');">Delete All</a>
+   <table class="table table-danger mt-3">
+      <tr class="h4">
+         <th>Brand</th>
+         <th>Model</th>
+         <th>Price</th>
+         <th>Image</th>
+         <th>Menu</th>
+      </tr>
+      {{#each mobiles }}
+      <tr>
+         <th>{{ brandName }} </th>
+         <th>{{ phoneModel }}</th>
+         <th>${{ price }}</th>
+         <th>
+            <a href="/mobile/detail/{{_id}}">
+               <img src="{{ image }}" width="100" height="100">
+            </a>
+         </th>
+         <th>
+            <a class="btn btn-warning" href="#">Edit</a>
+            <a class="btn btn-danger" href="/mobile/delete/{{_id}}"
+               onclick="return confirm('Are you sure to delete this mobile ?');">Delete</a>
+         </th>
+      </tr>
+      {{/each}}
+   </table>
+</div>
+
+
+{{!-- {{#each mobiles }}
+<ul>
+   <li>Thương hiệu: {{ brandName }}</li>
+   <li>Tên model: {{ phoneModel }}</li>
+   <li>Giá cả: ${{ price }} </li>
+   <li>Ngày sản xuất : {{ date }}</li>
+   <li>Số lượng : {{ quantity }}</li>
+   {{#if condition}}
+
+   {{/if}}
+   <li>Best seller : {{ bestSeller }}</li>
+   <li>Ảnh :
+      <img src="{{ image }}" width="100" height="100">
+   </li>
+</ul>
+{{/each}} --}}
